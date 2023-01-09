@@ -39,7 +39,7 @@ class ResultContainerTable extends React.Component<{ data: Html5QrcodeResult[] }
               return (<tr key={i}>
                 <td>{i}</td>
                 <td>{result.decodedText}</td>
-                <td>{result.result.format?.formatName}</td>
+             {/* <td>{result.result.format?.formatName}</td> */}
               </tr>);
             })
           }
