@@ -1,9 +1,8 @@
 import { Offcanvas, OffcanvasTitle, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
-import { CartItem } from "./cartItem";
-import { StoreItem } from "./StoreItem";
 import storeItems from "../data/items.json"
+import { CartItem } from "./CartItem";
 
 type ShoppingCartProps = {
     isOpen: boolean
