@@ -20,4 +20,11 @@
         "barcode": "6223000350256",
         "imgUrl": "/imgs/milk.jpeg"
     }
+    {
+        "id": 4,
+        "name": "Shangrila Garlic Chilli Sauce",
+        "price": 320.00,
+        "barcode": "8964000020531",
+        "imgUrl": "/imgs/sauce.jpeg"
+    }
 ]
