@@ -3,7 +3,7 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 import storeItems from "../data/items.json"
 import { CartItem } from "./CartItem";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AlertContext } from "../utilities/AlertContext";
 
 import {
@@ -18,8 +18,10 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     const { setAlert } = useContext(AlertContext);
     const [isCheckingOut, setIsCheckingOut] = useState<boolean>(false);
      const { closeCart, cartItems} = useShoppingCart()
+     const [totalPrice, setTotalPrice] = useState<number>(0)
 
-    const checkout = async () => {
+    const checkout =  () => {
+			debugger;
         setIsCheckingOut(true);
         const paymentStatus = makePayment();
         if (paymentStatus == PAYMENT_STATUS.FAILURE) {
@@ -34,7 +36,21 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
         setAlert("success", `Payment confirmed!`);
         return PAYMENT_STATUS.SUCCESS;
     };
+/**
+ * Junaid Added this code
+ */
+    useEffect(()=>{
+       const sum:number = formatCurrency(
+            cartItems.reduce((total, CartItem) => {
+                const item = storeItems.find(i => i.id === CartItem.id)
+                const cartTotal = total + (item?.price || 0) * CartItem.quantity
+                return cartTotal
+                
+            }, 0)
+        );
 
+        setTotalPrice(sum)
+    },[cartItems])
 
     return (
         <Offcanvas show={isOpen} onHide={closeCart} placement="end">
@@ -48,15 +64,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
                     ))}
                     <div className="ms-auto fw-bold fs-5">
                         Total {" "}
-                        {formatCurrency(
-                            cartItems.reduce((total, CartItem) => {
-                                const item = storeItems.find(i => i.id === CartItem.id)
-                                const cartTotal = total + (item?.price || 0) * CartItem.quantity
-                               console.log("This is carTotal value " + cartTotal) 
-                                return cartTotal
-                                
-                            }, 0)
-                        )}
+                        {totalPrice}
                     </div>     
                 </Stack>
 
@@ -65,7 +73,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
                         color="primary"
                         onClick={checkout}
                         className="checkoutBtn"
-                        disabled={cartItems.length == 0 || isCheckingOut}>
+												>
                         Checkout
                     </Button>
             </Offcanvas.Body>
