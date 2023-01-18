@@ -16,6 +16,13 @@
     ```bash
     $ npm i html5-qrcode
     ```
+    
+- __React hook for using Geolocation API: [react-geolocated ](https://github.com/no23reason/react-geolocated)__
+
+    Install `react-geolocated`:
+    ```bash
+    $ npm install react-geolocated --save
+    ```
 ### Demo :
 - [Demo in Sanbox](https://00wzw0-5173.preview.csb.app/store)
 - For testing : you can add a new product's barcode in [/src/data/items.json](https://github.com/Mhussein27/react-ts-mobile-self-checkout/blob/main/src/data/items.json) then try scan it by yourself from the Scan tab or you can scan on of the existing items in Store tab. 
