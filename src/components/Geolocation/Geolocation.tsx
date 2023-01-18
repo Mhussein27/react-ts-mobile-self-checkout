@@ -27,7 +27,7 @@ class Geolocation extends Component<{}, StateType>{
     render(){
         return(
             <div>
-                <h1>Geolocation Parent Component</h1>
+                <h1>Geolocation Component to get user Location attributes : to continue turn on  device location</h1>
                 <h4>latitude: {this.state.lat}</h4>
                 <h4>longitude: {this.state.long}</h4>
             </div>
