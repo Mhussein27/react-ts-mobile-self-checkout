@@ -1,3 +1,11 @@
-export function Home(){
-    return <h1>Home</h1>
+import Geolocation from '../components/Geolocation/Geolocation';
+
+export function Home() {
+  return (
+    <div className="Home">
+      <Geolocation/> 
+    </div>
+  );
 }
+
+//export default Home;
