@@ -1,11 +1,14 @@
-import Geolocation from '../components/Geolocation/Geolocation';
+import { GeolocationDisp } from '../components/Geolocation/GeolocationDisp';
+
 
 export function Home() {
   return (
     <div className="Home">
-      <Geolocation/> 
+      <GeolocationDisp /> 
     </div>
   );
 }
 
-//export default Home;
+export default Home;
+
+
