@@ -5,6 +5,7 @@ import ResultContainerPlugin from "../utilities/ResultContainerPlugin.jsx"
 import Items from "../data/items.json" // this is list of item(s) in JSON format, each item has parameter like id, name, price, barcode, imgUrl 
 
 import { StoreItem } from "../components/StoreItem" // this is refer to function StoreItem({ id, name, price, barcode, imgUrl } to render item in Card format with couple of buttons
+import { Row } from 'react-bootstrap'
 
 interface StateInterface {
   decodedResults: Array<any>;
@@ -66,12 +67,14 @@ class Scan extends React.Component<{}, StateInterface> {
           />
           <ResultContainerPlugin results={this.state.decodedResults} />
           <div>The barcode you are trying to Scan is  : {this.state.decodedText}</div>
-          <div>
+          <div className="g-3" >
+          <Row md={2} xs={1} lg={3} className="g-3"  >
             {Items.filter(item => item.barcode === this.state.decodedText).map(item =>
             (<span key={item.id}>
               <StoreItem{...item} />
             </span>
             ))}
+             </Row>
           </div>
         </section>
       </div>
