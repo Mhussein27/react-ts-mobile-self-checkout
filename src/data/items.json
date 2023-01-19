@@ -23,8 +23,15 @@
     {
         "id": 4,
         "name": "Shangrila Garlic Chilli Sauce",
-        "price": 320.00,
+        "price": 23,
         "barcode": "8964000020531",
         "imgUrl": "/imgs/sauce.jpeg"
+    },
+    {
+        "id": 5,
+        "name": "CADBURY DRINKING CHOCO",
+        "price": 113,
+        "barcode": "7622210304551",
+        "imgUrl": "/imgs/drink.jpeg"
     }
 ]
