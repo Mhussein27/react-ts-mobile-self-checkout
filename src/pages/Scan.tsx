@@ -60,11 +60,12 @@ class Scan extends React.Component<{}, StateInterface> {
           <br /><br /><br />
           <Html5QrcodePlugin
             fps={10}
-            qrbox={250}
+            qrbox={400}
             disableFlip={false}
             qrCodeSuccessCallback={this.onNewScanResult}
           />
           <ResultContainerPlugin results={this.state.decodedResults} />
+          <div>The barcode you are trying to Scan is  : {this.state.decodedText}</div>
           <div>
             {Items.filter(item => item.barcode === this.state.decodedText).map(item =>
             (<span key={item.id}>
