@@ -40,5 +40,19 @@
         "price": 7.95,
         "barcode": "6223003943387",
         "imgUrl": "/imgs/pudding.jpeg"
+    },
+    {
+        "id": 7,
+        "name": "Eva B-white Night Whitening Cream",
+        "price": 14.95,
+        "barcode": "6223004373381",
+        "imgUrl": "/imgs/cream.jpeg"
+    },
+    {
+        "id": 8,
+        "name": "ايلانو مياه شرب 600 مل",
+        "price": 2.50,
+        "barcode": "6225000378827",
+        "imgUrl": "/imgs/water.jpeg"
     }
 ]
