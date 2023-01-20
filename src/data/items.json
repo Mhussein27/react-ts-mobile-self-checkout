@@ -33,5 +33,12 @@
         "price": 113,
         "barcode": "7622210304551",
         "imgUrl": "/imgs/drink.jpeg"
+    },
+    {
+        "id": 6,
+        "name": "بودنج بنكهة الشكولاته من دريم - 100 جم",
+        "price": 7.95,
+        "barcode": "6223003943387",
+        "imgUrl": "/imgs/pudding.jpeg"
     }
 ]
