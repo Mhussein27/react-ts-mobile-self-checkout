@@ -61,7 +61,7 @@ class Scan extends React.Component<{}, StateInterface> {
           <br /><br /><br />
           <Html5QrcodePlugin
             fps={10}
-            qrbox={400}
+            qrbox={250}
             disableFlip={false}
             qrCodeSuccessCallback={this.onNewScanResult}
           />
