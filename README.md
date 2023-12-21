@@ -25,7 +25,12 @@
     ```
 ### Demo :
 - [Demo in Sanbox](https://00wzw0-5173.preview.csb.app/store)
-- For testing : you can add a new product's barcode in [/src/data/items.json](https://github.com/Mhussein27/react-ts-mobile-self-checkout/blob/main/src/data/items.json) then try scan it by yourself from the Scan tab or you can scan on of the existing items in Store tab. 
+- For testing : you can add a new product's barcode in [/src/data/items.json](https://github.com/Mhussein27/react-ts-mobile-self-checkout/blob/main/src/data/items.json) then try scan it by yourself from the Scan tab or you can scan on of the existing items in Store tab.
+
+### Demo :
+- you can add more products' barcodes here  : react-ts-mobile-self-checkout/src/data/items.json
+
+- you can add more product images: here : react-ts-mobile-self-checkout/public/imgs/
 
 ### Additional Contributors
 | Name | Profile|
