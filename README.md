@@ -24,7 +24,7 @@
     $ npm install react-geolocated --save
     ```
 ### Demo :
-- [Demo in Sanbox](https://00wzw0-5173.preview.csb.app/store)
+- [Demo in codesandbox.io](https://k9367p-5173.csb.app/Scan)
 
 ### Testing New barcode :
 -  Add a new product's barcode in : [/src/data/items.json](https://github.com/Mhussein27/react-ts-mobile-self-checkout/blob/main/src/data/items.json)
