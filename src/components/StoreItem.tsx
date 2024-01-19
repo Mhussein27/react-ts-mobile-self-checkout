@@ -39,7 +39,10 @@ export function StoreItem({ id, name, EnglishName, price, barcode, imgUrl }: Sto
                     <span className="fs-9 text-muted">{name}</span>
                 </div>
                 <div>
-                    <span className="fs-9 text-muted">{barcode}</span>
+                    <span className="fs-9 text-muted">Barcode Number: {barcode}</span>
+                </div>
+                <div>
+                    <span className="fs-9 text-muted">Product Number: {id}</span>
                 </div>
                 <div className="mt-auto">
                     {quantity === 0 ? (

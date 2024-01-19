@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-//https://codesandbox.io/s/react-typescript-forked-lhvt0k?file=/src/Scan.tsx:1271-1364
 import Html5QrcodePlugin from "../utilities/Html5QrcodePlugin"
 import ResultContainerPlugin from "../utilities/ResultContainerPlugin.jsx"
-import Items from "../data/items.json" // this is list of item(s) in JSON format, each item has parameter like id, name, price, barcode, imgUrl 
-
-import { StoreItem } from "../components/StoreItem" // this is refer to function StoreItem({ id, name, price, barcode, imgUrl } to render item in Card format with couple of buttons
+import Items from "../data/items.json"
+import { StoreItem } from "../components/StoreItem"
 import { Row } from 'react-bootstrap'
 
 interface StateInterface {
@@ -12,7 +10,6 @@ interface StateInterface {
   decodedText: string 
 }
 
-//https://beta.reactjs.org/reference/react/Component
 class Scan extends React.Component<{}, StateInterface> {
   constructor(props) {
     super(props);
@@ -20,30 +17,28 @@ class Scan extends React.Component<{}, StateInterface> {
     this.state = {
       decodedResults: [],
       decodedText : ""
-      
     };
-    // This binding is necessary to make `this` work in the callback.
-    //bind(this) means that when you use this inside onNewScanResult, it'll point to the actual class instance, so you have access to setState etc
-    //decodedText is a parameter that onNewScanResult receives when called
+
     this.onNewScanResult = this.onNewScanResult.bind(this);
   }
+
   onNewScanResult(decodedText, decodedResult) {
     console.log("Scan [result] =", decodedText);
 
-    /*
-    this.setState((state, props) => {
-      state.decodedResults.push(decodedResult);
-      decodedText : decodedText ;
-      return state;
-    }); 
-    */
+    this.setState({
+      decodedResults: [...this.state.decodedResults, decodedText],
+      decodedText: decodedText
+    });
 
-    this.setState((state, props) => ({decodedResults: [...state.decodedResults,decodedText ] , decodedText: decodedText}) )
+    console.log("here is state inside setState:" + this.state);
 
-    this.setState((state)=>console.log("here is state inside setState:" + state))
-
-    this.setState((state)=>console.log("here is this.state inside setState:" + this.state))
+    console.log("here is this.state inside setState:" + this.state);
   
+    const matchingItems = Items.filter(item => item.barcode === decodedText);
+
+    this.setState({
+      matchingItems: matchingItems
+    });
   }
   
   render() {
@@ -68,18 +63,18 @@ class Scan extends React.Component<{}, StateInterface> {
           <ResultContainerPlugin results={this.state.decodedResults} />
           <div>The barcode you are trying to Scan is  : {this.state.decodedText}</div>
           <div className="g-3" >
-          <Row md={2} xs={1} lg={3} className="g-3"  >
-            {Items.filter(item => item.barcode === this.state.decodedText).map(item =>
-            (<span key={item.id}>
-              <StoreItem{...item} />
-            </span>
-            ))}
-             </Row>
+            <Row md={2} xs={1} lg={3} className="g-3"  >
+              {this.state.matchingItems && this.state.matchingItems.map(item =>
+                (<span key={item.id}>
+                  <StoreItem{...item} />
+                </span>
+              ))}
+            </Row>
           </div>
         </section>
       </div>
     );
   }
-
 }
-export default Scan;
+
+export default Scan
