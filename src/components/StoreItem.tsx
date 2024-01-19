@@ -5,6 +5,7 @@ import { formatCurrency } from "../utilities/formatCurrency"
 type StoreItemProps = {
     id: number,
     name: string,
+    EnglishName: string,
     price: number,
     barcode: string,
     imgUrl: string
@@ -12,7 +13,7 @@ type StoreItemProps = {
 }
 
 
-export function StoreItem({ id, name, price, barcode, imgUrl }: StoreItemProps) {
+export function StoreItem({ id, name, EnglishName, price, barcode, imgUrl }: StoreItemProps) {
     const { getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
@@ -29,11 +30,14 @@ export function StoreItem({ id, name, price, barcode, imgUrl }: StoreItemProps) 
             />
             <Card.Body className="d-flex flex-column">
                 <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-                    <span className="fs-3">{name}</span>
+                    <span className="fs-3">{EnglishName}</span>
 
                     <span className="fs-3 text-muted">{formatCurrency
                         (price)}</span>
                 </Card.Title>
+                <div>
+                    <span className="fs-9 text-muted">{name}</span>
+                </div>
                 <div>
                     <span className="fs-9 text-muted">{barcode}</span>
                 </div>

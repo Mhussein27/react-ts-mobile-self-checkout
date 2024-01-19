@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Pasta Spaghetti",
+        "price": 20,
+        "barcode": "6221022121021",
+        "imgUrl": "/imgs/pasta.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Rice",
+        "price": 30,
+        "barcode": "6224008985013",
+        "imgUrl": "/imgs/rice.jpeg"
+    },
+    {
+        "id": 3,
+        "name": "Milk",
+        "price": 25,
+        "barcode": "6223000350256",
+        "imgUrl": "/imgs/milk.jpeg"
+    },
+    {
+        "id": 4,
+        "name": "Shangrila Garlic Chilli Sauce",
+        "price": 23,
+        "barcode": "8964000020531",
+        "imgUrl": "/imgs/sauce.jpeg"
+    },
+    {
+        "id": 5,
+        "name": "CADBURY DRINKING CHOCO",
+        "price": 113,
+        "barcode": "7622210304551",
+        "imgUrl": "/imgs/drink.jpeg"
+    },
+    {
+        "id": 6,
+        "name": "بودنج بنكهة الشكولاته من دريم - 100 جم",
+        "price": 7.95,
+        "barcode": "6223003943387",
+        "imgUrl": "/imgs/pudding.jpeg"
+    },
+    {
+        "id": 7,
+        "name": "Eva B-white Night Whitening Cream",
+        "price": 14.95,
+        "barcode": "6223004373381",
+        "imgUrl": "/imgs/cream.jpeg"
+    },
+    {
+        "id": 8,
+        "name": "ايلانو مياه شرب 600 مل",
+        "price": 2.50,
+        "barcode": "6225000378827",
+        "imgUrl": "/imgs/water.jpeg"
+    }
+]
