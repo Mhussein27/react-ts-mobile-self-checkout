@@ -1,6 +1,7 @@
-import { Geolocation } from "./Geolocation";
+import { Geolocation } from '../components/Geolocation/Geolocation';
 
-export const GeolocationDisp = () => {
+
+export function Location() {
     return (
         <article className="p-8 bg-slate-800 min-h-screen text-slate-200 max-w-3xl mx-auto">
             <h1 className="text-3xl font-bold my-4">We need to know your location first </h1>
@@ -8,4 +9,6 @@ export const GeolocationDisp = () => {
             <Geolocation />
         </article>
     );
-};
+}
+
+export default Location;
