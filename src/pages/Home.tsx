@@ -1,11 +1,11 @@
 import React from 'react';
-import backgroundImage from '/imgs/backgroundImage.png'; // Replace with the correct path to your background image
+import backgroundImage from '/imgs/backgroundImage.jpg'; // Replace with the correct path to your background image
 
 export function Home() {
   const divStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
