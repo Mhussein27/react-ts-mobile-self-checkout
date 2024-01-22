@@ -6,12 +6,12 @@ export function Store() {
 
     return (
         <>
-            <h1>Store</h1>  
+            <h1>Store</h1>
 
-            <Row md={3} xs={2} lg={5} className="g-3" >
+            <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-3">
                 {Items.map(item => (
                     <Col key={item.id}>
-                        <StoreItem{...item} />
+                        <StoreItem {...item} />
                     </Col>
                 ))}
             </Row>
