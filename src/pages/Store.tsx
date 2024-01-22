@@ -8,7 +8,7 @@ export function Store() {
         <>
             <h1>Store</h1>  
 
-            <Row md={2} xs={1} lg={3} className="g-3" >
+            <Row md={3} xs={2} lg={5} className="g-3" >
                 {Items.map(item => (
                     <Col key={item.id}>
                         <StoreItem{...item} />
