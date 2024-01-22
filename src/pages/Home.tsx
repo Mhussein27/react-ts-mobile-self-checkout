@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import backgroundImage from '/imgs/backgroundImage.jpg'; // Replace with the correct path to your background image
 
 export function Home() {
+  const [backgroundImageLoaded, setBackgroundImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = backgroundImage;
+    image.onload = () => {
+      setBackgroundImageLoaded(true);
+    };
+  }, [backgroundImage]);
+
   const divStyle = {
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundImage: backgroundImageLoaded ? `url(${backgroundImage})` : 'none',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
