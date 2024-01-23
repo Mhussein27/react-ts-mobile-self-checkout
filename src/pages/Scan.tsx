@@ -54,12 +54,14 @@ class Scan extends React.Component<{}, StateInterface> {
             {this.state.decodedResults.length}
           </div>
           <br /><br /><br />
+          <div className="qr-scanner-container" style={{ width: "600px", height: "600px", position: "relative" }}>
           <Html5QrcodePlugin
             fps={10}
             qrbox={250}
             disableFlip={false}
             qrCodeSuccessCallback={this.onNewScanResult}
           />
+          </div>
           <ResultContainerPlugin results={this.state.decodedResults} />
           <div>The barcode you are trying to Scan is  : {this.state.decodedText}</div>
           <div className="g-3" >
