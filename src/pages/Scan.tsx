@@ -7,7 +7,7 @@ import { Row } from 'react-bootstrap'
 
 interface StateInterface {
   decodedResults: Array<any>;
-  decodedText: string 
+  decodedText: string
 }
 
 class Scan extends React.Component<{}, StateInterface> {
@@ -16,7 +16,7 @@ class Scan extends React.Component<{}, StateInterface> {
 
     this.state = {
       decodedResults: [],
-      decodedText : ""
+      decodedText: ""
     };
 
     this.onNewScanResult = this.onNewScanResult.bind(this);
@@ -33,14 +33,14 @@ class Scan extends React.Component<{}, StateInterface> {
     console.log("here is state inside setState:" + this.state);
 
     console.log("here is this.state inside setState:" + this.state);
-  
+
     const matchingItems = Items.filter(item => item.barcode === decodedText);
 
     this.setState({
       matchingItems: matchingItems
     });
   }
-  
+
   render() {
     console.log("this.state =" + this.state);
     console.log("Before calling decodedText");
@@ -54,22 +54,37 @@ class Scan extends React.Component<{}, StateInterface> {
             {this.state.decodedResults.length}
           </div>
           <br /><br /><br />
-          <div className="qr-scanner-container" style={{ width: "600px", height: "600px", position: "relative" }}>
-          <Html5QrcodePlugin
-            fps={10}
-            qrbox={250}
-            disableFlip={false}
-            qrCodeSuccessCallback={this.onNewScanResult}
-          />
+          <div className="qr-scanner-container">
+            <Html5QrcodePlugin
+              fps={10}
+              qrbox={250}
+              disableFlip={false}
+              qrCodeSuccessCallback={this.onNewScanResult}
+            />
+            <style jsx>{`
+    @media (max-width: 768px) {
+      .qr-scanner-container {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .qr-scanner-container {
+        width: 600px;
+        height: 600px;
+      }
+    }
+  `}</style>
           </div>
           <ResultContainerPlugin results={this.state.decodedResults} />
           <div>The barcode you are trying to Scan is  : {this.state.decodedText}</div>
           <div className="g-3" >
             <Row md={2} xs={1} lg={3} className="g-3"  >
               {this.state.matchingItems && this.state.matchingItems.map(item =>
-                (<span key={item.id}>
-                  <StoreItem{...item} />
-                </span>
+              (<span key={item.id}>
+                <StoreItem{...item} />
+              </span>
               ))}
             </Row>
           </div>
