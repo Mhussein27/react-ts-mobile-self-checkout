@@ -62,20 +62,21 @@ class Scan extends React.Component<{}, StateInterface> {
               qrCodeSuccessCallback={this.onNewScanResult}
             />
             <style jsx>{`
-    @media (max-width: 768px) {
-      .qr-scanner-container {
-        width: 300px;
-        height: 300px;
-      }
-    }
+              .qr-scanner-container {
+                width: 100%;
+                height: 100%;
+                max-width: 600px;
+                max-height: 600px;
+                margin: 0 auto;
+              }
 
-    @media (min-width: 769px) {
-      .qr-scanner-container {
-        width: 600px;
-        height: 600px;
-      }
-    }
-  `}</style>
+              @media (min-width: 768px) {
+                .qr-scanner-container {
+                  width: 600px;
+                  height: 600px;
+                }
+              }
+            `}</style>
           </div>
           <ResultContainerPlugin results={this.state.decodedResults} />
           <div>The barcode you are trying to Scan is  : {this.state.decodedText}</div>
