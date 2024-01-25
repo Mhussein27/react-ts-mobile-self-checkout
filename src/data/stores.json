@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "storeName": "Madinaty",
+        "latitude": 30.0810528,
+        "longitude": 31.6385137
+       
+    },
+    {
+        "id": "2",
+        "storeName": "Aruba",
+        "latitude": 30.042833,
+        "longitude": 31.005528
+       
+    }
+]

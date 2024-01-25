@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Html5QrcodePlugin from "../../utilities/Html5QrcodePlugin";
 import { useGeolocated } from "react-geolocated";
+import stores from '../../data/stores.json';
 
 const Geolocation = () => {
     const [location, setLocation] = useState(null);
     const [qrScanned, setQrScanned] = useState(false);
     const [scannedQRData, setScannedQRData] = useState(null);
+    const [matchedStore, setMatchedStore] = useState(null);
     const [address, setAddress] = useState("");
 
     const {
@@ -70,18 +72,36 @@ const Geolocation = () => {
     };
 
 
-
-    //  accept all the differences within the same area , if you want to narrow you can make it 0.0001
     const isLocationMatch = () => {
         if (location && scannedQRData) {
-            //return location.latitude === scannedQRData.latitude && location.longitude === scannedQRData.longitude; // this line check exact area
+          console.log("scannedQRData.latitude", scannedQRData.latitude);
+          console.log("scannedQRData.longitude", scannedQRData.longitude);
+      
+          const latMatch = Math.abs(location.latitude - scannedQRData.latitude) < 0.01;
+          const longMatch = Math.abs(location.longitude - scannedQRData.longitude) < 0.01;
+          console.log("latMatch", latMatch);
+          console.log("longMatch", longMatch);
+      
+          
+    if (latMatch && longMatch) {
+      const matchingStore = stores.find(store => store.latitude === scannedQRData.latitude);
 
-            const latMatch = Math.abs(location.latitude - scannedQRData.latitude) < 0.001;
-            const longMatch = Math.abs(location.longitude - scannedQRData.longitude) < 0.001;
-            return latMatch && longMatch;
-        }
-        return false;
-    };
+      if (matchingStore) {
+        return `Location Matched! Store Name: ${matchingStore.storeName}`;
+      } else {
+        return "Location Not Matched!";
+      }
+    } else {
+      return "Location data incomplete";
+    }
+  }
+  return "Location data incomplete";
+}
+
+
+    useEffect(() => {
+        isLocationMatch();
+    }, [location, scannedQRData]);
 
     return (
         <div>
@@ -102,9 +122,6 @@ const Geolocation = () => {
             )}
             {qrScanned && (
                 <div>
-                     {/*
-                    <p>Scanned QR Location is : {JSON.stringify(scannedQRData)}</p>
-                     */}
                     <div>
                         <p>Scanned Latitude: {scannedQRData.latitude}, Scanned Longitude: {scannedQRData.longitude}</p>
                     </div>
@@ -112,11 +129,7 @@ const Geolocation = () => {
                         <p>Current Latitude: {location.latitude}, Current Longitude: {location.longitude} </p>
                     </div>
 
-                    {isLocationMatch() ? (
-                        <p>Location Matched!</p>
-                    ) : (
-                        <p>Location Not Matched!</p>
-                    )}
+                    {isLocationMatch()}
                 </div>
             )}
         </div>
