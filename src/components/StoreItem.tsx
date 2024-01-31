@@ -21,7 +21,7 @@ export function StoreItem({ id, name, EnglishName, price, barcode, imgUrl }: Sto
     const quantity = getItemQuantity(id)
 
     return (
-        <Card style={{ width: "250px", height: "400px" }}>
+        <Card style={{ width: "250px", height: "500px" }}>
         <div style={{ width: "100%", height: "60%", overflow: "hidden" }}>
           <Card.Img
             variant="top"
@@ -32,6 +32,7 @@ export function StoreItem({ id, name, EnglishName, price, barcode, imgUrl }: Sto
         </div>
         <div style={{ padding: "10px" }}>
           <Card.Title style={{ fontSize: "16px" }}>{EnglishName}</Card.Title>
+          <Card.Title style={{ fontSize: "16px" }}>{formatCurrency(price)}</Card.Title>
           <Card.Text style={{ fontSize: "12px" }}>
             {name} <br />
             Barcode Number: {barcode} <br />
